@@ -83,19 +83,23 @@ CUDA_TOOLKIT_ROOT_DIR not found or specified
 dlib的gpu环境配置
 https://blog.csdn.net/jixinpu/article/details/83010456
 
-1、cmake
+### 1、cmake
 
 https://cmake.org/download/
 cmake-3.29.0-rc1-windows-x86_64.msi
 
-2、mingw64
+### 2、mingw64
 winlibs-x86_64-posix-seh-gcc-12.1.0-llvm-14.0.6-mingw-w64ucrt-10.0.0-r3.zip
 https://winlibs.com/
 
-3、编译lapack和blas库
-https://www.zhihu.com/question/422290306 怎么在Windows上安装lapack和blas库？
+### 3、编译lapack和blas库
+怎么在Windows上安装lapack和blas库？
+https://www.zhihu.com/question/422290306 
 
-make命令：mingw32-make.exe ->make.exe
+https://github.com/Reference-LAPACK/lapack
+lapack-3.10.1.tar.gz
+
+make命令不生效：复制mingw32-make.exe 重命名为make.exe
 
 mkdir build
 cd build
@@ -103,7 +107,7 @@ cmake .. -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=C:\lapack-3.10.1 -DLAPACKE=
 make -j 8
 make install
 
-4、构建Jdlib
+### 4、构建Jdlib
 cmake .. -G "MinGW Makefiles" -DDLIB_USE_CUDA=0
 ## 复制
 make
