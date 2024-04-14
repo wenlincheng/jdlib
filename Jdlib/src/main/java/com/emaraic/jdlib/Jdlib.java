@@ -59,7 +59,8 @@ public class Jdlib {
         } else if (os.contains("mac")) {
             libpath = "/native" + File.separator + "macosx" + File.separator + name;
         } else {
-            throw new java.lang.UnsupportedOperationException(os + " is not supported. Try to recompile Jdlib on your machine and then use it.");
+            libpath = "/native/win/" + name;
+            // throw new java.lang.UnsupportedOperationException(os + " is not supported. Try to recompile Jdlib on your machine and then use it.");
         }
 
         InputStream inputStream = null;

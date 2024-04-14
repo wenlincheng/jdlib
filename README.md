@@ -73,3 +73,48 @@ mvn package
 ```
 java -jar target/JdlibExamples-1.0.0-jar-with-dependencies.jar
 ```
+## win
+
+
+https://gcc-mcf.lhmouse.com/
+
+
+CUDA_TOOLKIT_ROOT_DIR not found or specified
+dlib的gpu环境配置
+https://blog.csdn.net/jixinpu/article/details/83010456
+
+1、cmake
+
+https://cmake.org/download/
+cmake-3.29.0-rc1-windows-x86_64.msi
+
+2、mingw64
+winlibs-x86_64-posix-seh-gcc-12.1.0-llvm-14.0.6-mingw-w64ucrt-10.0.0-r3.zip
+https://winlibs.com/
+
+3、编译lapack和blas库
+https://www.zhihu.com/question/422290306 怎么在Windows上安装lapack和blas库？
+
+make命令：mingw32-make.exe ->make.exe
+
+mkdir build
+cd build
+cmake .. -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=C:\lapack-3.10.1 -DLAPACKE=ON -DCBLAS=ON
+make -j 8
+make install
+
+4、构建Jdlib
+cmake .. -G "MinGW Makefiles" -DDLIB_USE_CUDA=0
+## 复制
+make
+
+cmake .. -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX=D:\Program Files\lapack-3.10.1 -DLAPACKE=ON -DCBLAS=ON
+
+https://github.com/Reference-LAPACK/lapack
+
+GCC G++ MinGW    UCRT
+https://winlibs.com/
+
+
+https://blog.csdn.net/weixin_41767324/article/details/114624550
+
